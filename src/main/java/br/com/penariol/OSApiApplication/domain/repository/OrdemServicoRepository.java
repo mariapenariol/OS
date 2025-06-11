@@ -4,7 +4,7 @@
  */
 package br.com.penariol.OSApiApplication.domain.repository;
 
-import br.com.penariol.OSApiApplication.domain.model.Cliente;
+import br.com.penariol.OSApiApplication.domain.model.OrdemServico;
 import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 
@@ -12,9 +12,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
  *
  * @author ppjatb
  */
-public interface ClienteRepository extends JpaRepository<Cliente, Long>{
+public interface OrdemServicoRepository extends JpaRepository<OrdemServico, Long> {
     
-    List<Cliente> findByNome(String nome);
-    List<Cliente> findByNomeContaining(String nome);
-    Cliente findByEmail(String email);
+    List<OrdemServico> findById(long id);
 }
