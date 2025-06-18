@@ -4,6 +4,7 @@
  */
 package br.com.penariol.OSApiApplication.domain.model;
 
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -122,6 +123,5 @@ public class OrdemServico {
         final OrdemServico other = (OrdemServico) obj;
         return this.id == other.id;
     }
-    
-    
+
 }

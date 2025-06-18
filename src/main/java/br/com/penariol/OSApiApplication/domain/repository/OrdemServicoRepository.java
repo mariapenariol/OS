@@ -4,6 +4,7 @@
  */
 package br.com.penariol.OSApiApplication.domain.repository;
 
+
 import br.com.penariol.OSApiApplication.domain.model.OrdemServico;
 import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -14,5 +15,9 @@ import org.springframework.data.jpa.repository.JpaRepository;
  */
 public interface OrdemServicoRepository extends JpaRepository<OrdemServico, Long> {
     
-    List<OrdemServico> findById(long id);
+    OrdemServico findById(long id);
+    
+    @Override
+    List<OrdemServico> findAll();
+    
 }

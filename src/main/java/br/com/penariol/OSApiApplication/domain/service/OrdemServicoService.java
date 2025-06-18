@@ -4,6 +4,7 @@
  */
 package br.com.penariol.OSApiApplication.domain.service;
 
+import br.com.penariol.OSApiApplication.domain.exception.DomainException;
 import br.com.penariol.OSApiApplication.domain.model.OrdemServico;
 import br.com.penariol.OSApiApplication.domain.model.StatusOrdemServico;
 import br.com.penariol.OSApiApplication.domain.repository.OrdemServicoRepository;
@@ -27,4 +28,17 @@ public class OrdemServicoService {
        
        return ordemServicoRepository.save(ordemServico);
     }
+    
+     public OrdemServico salvar (OrdemServico ordemServico){
+       OrdemServico ordemServicoExistente = ordemServicoRepository.findById(ordemServico.getId());
+       
+       if (ordemServicoExistente != null && !ordemServicoExistente.equals(ordemServico)){
+           throw new DomainException("Já existe uma ordem de serviço cadastrado com esse Id!");
+       }
+       return ordemServicoRepository.save(ordemServico);
+   }
+   
+   public void excluir (Long id){
+       ordemServicoRepository.deleteById(id);
+   }
 }
